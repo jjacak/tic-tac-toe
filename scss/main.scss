@@ -26,14 +26,40 @@ header {
 	}
 }
 
+.hidden {
+	visibility: hidden;
+}
+.cell-clicked {
+    pointer-events: none;
+}
+
+.cell-clicked::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	width: 100%;
+	height: 100%;
+	font-size: 5rem;
+	font-weight: bold;
+	color: $color-primary;
+}
+.cell-clicked-p1::before {
+	content: '〇';
+}
+.cell-clicked-p2::before {
+	content: '✖';
+}
 .game {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
-	max-height: 100%;
-    padding-bottom: 1rem;
+	justify-content: center;
+	padding-bottom: 1rem;
 
 	.players {
 		align-self: flex-start;
@@ -79,8 +105,9 @@ header {
 			content: '';
 			background-color: $color-accent;
 			border-radius: 100%;
-			height: 50%;
-			aspect-ratio: 1;
+			height: 1.5rem;
+            width: 1.5rem;
+            
 		}
 	}
 
@@ -89,7 +116,7 @@ header {
 		border-radius: 10px;
 		background: none;
 		font-size: 1rem;
-        font-family: 'Nunito', sans-serif;
+		font-family: 'Nunito', sans-serif;
 		color: $color-grey-900;
 		font-weight: bold;
 		box-shadow: 0 0 5px $color-grey-400;
@@ -97,23 +124,30 @@ header {
 		cursor: pointer;
 		transition: background-color.3s;
 	}
+	// .start-btn {
+	//     margin-bottom: 3rem;
+	// }
 
 	.btn:hover,
 	.btn:active {
 		background-color: $color-primary;
 	}
 
-    .game-end-msg {
-        display:none;
-    }
+	.game-end-msg {
+		margin-top: 3rem;
+		margin-bottom: 0.5rem;
+        text-align: center;
+	}
+
 	.board {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(60px, 120px));
 		gap: 5px;
-		margin-top: 3rem;
+		// margin-top: 3rem;
 		padding: 0 1rem;
 
 		.cell {
+			position: relative;
 			aspect-ratio: 1;
 			border-radius: 10px;
 			background-color: $color-grey-100;
@@ -122,42 +156,39 @@ header {
 	}
 
 	.edit-name-popup {
-
 		position: absolute;
-        top: 0;
-        right: 50%;
-        display: none; // change to flex with js!
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        width: 320px;
-        max-width: 90vw;
-        background-color: #fff;
-        transform: translateX(50%);
+		top: 0;
+		right: 50%;
+		display: none; // change to flex with js!
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		width: 320px;
+		max-width: 90vw;
+		background-color: #fff;
+		transform: translateX(50%);
 		border: 3px solid $color-primary;
-        border-radius: 10px;
-       
+		border-radius: 10px;
 
-        .close-btn{
-            align-self: flex-end;
-            color:$color-primary;
-            cursor: pointer;
-            padding: .5rem;
-        }
-        input {
-            border: 1px solid $color-grey-400;
-            border-radius: 5px;
-            width: 90%;
-            padding: 0.2rem;
-            outline: none;
-        }
-        input:focus {
-            border-color:$color-grey-900;
-        }
+		.close-btn {
+			align-self: flex-end;
+			color: $color-primary;
+			cursor: pointer;
+			padding: 0.5rem;
+		}
+		input {
+			border: 1px solid $color-grey-400;
+			border-radius: 5px;
+			width: 90%;
+			padding: 0.2rem;
+			outline: none;
+		}
+		input:focus {
+			border-color: $color-grey-900;
+		}
 
-        .btn {
-            margin-bottom: 0.5rem;
-        }
+		.btn {
+			margin-bottom: 0.5rem;
+		}
 	}
-    
 }
