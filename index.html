@@ -8,7 +8,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Nunito:ital,wght@0,400;0,700;1,400&display=swap"
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="/css/main.css" />
@@ -26,11 +26,11 @@
 			<div class="players">
 				<div class="player1 player">
 					<p class="player-name name-p1">player 1</p>
-					<i class="far fa-edit edit-p1"></i>
+					<i class="far fa-edit" data-player-to-edit="player1"></i>
 				</div>
 				<div class="player2 player">
 					<p class="player-name name-p2">player 2</p>
-					<i class="far fa-edit edit-p2"></i>
+					<i class="far fa-edit" data-player-to-edit="player2"></i>
 				</div>
 			</div>
 			<button class="start-btn btn">start new game</button>
@@ -54,13 +54,15 @@
 				<div class="cell" data-cell-number="8"></div>
 				<div class="cell" data-cell-number="9"></div>
 			</div>
-			<div class="edit-name-popup">
-				<div class="close-btn">
-					<i class="fas fa-times"></i>
+			<div class="edit-name-popup hidden">
+				<div class="popup-inner">
+					<div class="close-btn">
+						<i class="fas fa-times"></i>
+					</div>
+					<label for="name-input">Enter new name:</label>
+					<input type="text" name="name-input" id="name-input" />
+					<button class="btn save-name-btn">save</button>
 				</div>
-				<label for="name-input">Enter new name:</label>
-				<input type="text" name="name-input" id="name-input" />
-				<button class="btn save-name-btn">save</button>
 			</div>
 		</div>
 		<script src="/script/main.js"></script>
