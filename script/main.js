@@ -10,7 +10,7 @@ const gameEndMsg = document.querySelector('.game-end-msg');
 
 class Player {
 	constructor(objectName, defaultName) {
-        this.objectName = objectName;
+		this.objectName = objectName;
 		this.defaultName = defaultName;
 		this.name = defaultName;
 		this.playersCells = [];
@@ -69,8 +69,8 @@ function startGame() {
 	gameState.cellsClicked = 0;
 	cells.forEach((cell) => {
 		cell.classList.remove('cell-clicked');
-		cell.classList.remove('cell-clicked-p1');
-		cell.classList.remove('cell-clicked-p2');
+		cell.classList.remove('cell-clicked-player1');
+		cell.classList.remove('cell-clicked-player2');
 	});
 
 	board.classList.remove('hidden');
@@ -84,21 +84,15 @@ function changeActive() {
 }
 
 function displayActive() {
-    player1.playerDiv.classList.remove('active');
-    player2.playerDiv.classList.remove('active');
+	player1.playerDiv.classList.remove('active');
+	player2.playerDiv.classList.remove('active');
 	gameState.activePlayer.playerDiv.classList.add('active');
 }
 
 function markCell() {
 	this.classList.add('cell-clicked');
-
-	if (gameState.activePlayer == player1) {
-		this.classList.add('cell-clicked-p1');
-		player1.playersCells.push(this.dataset.cellNumber);
-	} else {
-		this.classList.add('cell-clicked-p2');
-		player2.playersCells.push(this.dataset.cellNumber);
-	}
+    this.classList.add(`cell-clicked-${gameState.activePlayer.objectName}`);
+    gameState.activePlayer.playersCells.push(this.dataset.cellNumber);
 }
 
 function cellClicked() {
@@ -129,16 +123,16 @@ function displayMessage(player) {
 
 function showPopup() {
 	editNamePopup.classList.remove('hidden');
-	gameState.playerToEdit = this.dataset.playerToEdit === 'player1'? player1:player2
-	
-    editNameInput.value = gameState.playerToEdit.name;
+	gameState.playerToEdit =
+		this.dataset.playerToEdit === 'player1' ? player1 : player2;
+
+	editNameInput.value = gameState.playerToEdit.name;
 }
 
 function editName() {
-	
-		gameState.playerToEdit.name = editNameInput.value ||gameState.playerToEdit.name;
-		gameState.playerToEdit.nameDisplay.innerText = gameState.playerToEdit.name;
-
+	gameState.playerToEdit.name =
+		editNameInput.value.trim() || gameState.playerToEdit.name;
+	gameState.playerToEdit.nameDisplay.innerText = gameState.playerToEdit.name;
 
 	hidePopup();
 }
@@ -152,3 +146,6 @@ cells.forEach((cell) => cell.addEventListener('click', cellClicked));
 editBtns.forEach((btn) => btn.addEventListener('click', showPopup));
 saveNameBtn.addEventListener('click', editName);
 closePopupBtn.addEventListener('click', hidePopup);
+
+
+

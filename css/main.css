@@ -55,11 +55,11 @@ header h1 {
           animation: mark-cell .3s ease-in  1;
 }
 
-.cell-clicked-p1::before {
+.cell-clicked-player1::before {
   content: 'o';
 }
 
-.cell-clicked-p2::before {
+.cell-clicked-player2::before {
   content: 'x';
 }
 
@@ -186,6 +186,7 @@ header h1 {
       grid-template-columns: repeat(3, minmax(60px, 120px));
   gap: 5px;
   padding: 0 1rem;
+  list-style: none;
 }
 
 .game .board .cell {
