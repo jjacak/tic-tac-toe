@@ -82,6 +82,14 @@ header {
 			font-size: 1.2rem;
 			font-weight: bold;
 
+            .player-symbol {
+                font-family: 'Fuzzy Bubbles', cursive;
+                font-weight: bold;
+                font-size: 1.5rem;
+                margin-left: 0.5rem;
+                color: $color-primary;
+                text-shadow: 0 0 1px $color-grey-900
+            }
 			i {
 				color: $color-grey-400;
 				font-size: 1rem;

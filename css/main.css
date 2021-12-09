@@ -110,6 +110,15 @@ header h1 {
   font-weight: bold;
 }
 
+.game .players .player .player-symbol {
+  font-family: 'Fuzzy Bubbles', cursive;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  color: #c26a6a;
+  text-shadow: 0 0 1px #302e2e;
+}
+
 .game .players .player i {
   color: #787878;
   font-size: 1rem;
