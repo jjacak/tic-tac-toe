@@ -96,7 +96,9 @@ function markCell() {
 }
 
 function cellClicked() {
-	if (gameState.isActive) {
+	if (!gameState.isActive) {
+		return
+	}
 		markCell.apply(this);
 		gameState.cellsClicked++;
 
@@ -109,7 +111,7 @@ function cellClicked() {
 		}
 		changeActive();
 		displayActive();
-	}
+	
 }
 
 function displayMessage(player) {
