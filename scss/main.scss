@@ -30,32 +30,10 @@ header {
 	visibility: hidden;
 }
 .cell-clicked {
+	animation: mark-cell .5s ease-in 1;
 	pointer-events: none;
 }
 
-.cell-clicked::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	width: 100%;
-	height: 100%;
-    font-family: 'Fuzzy Bubbles', cursive;
-	font-size: 5.5rem;
-	font-weight: bold;
-	color: $color-primary;
-    transform-origin: left bottom;
-    animation: mark-cell .3s ease-in  1 ;
-}
-.cell-clicked-player1::before {
-	content: 'o';
-}
-.cell-clicked-player2::before {
-	content: 'x';
-}
 .game {
 	position: relative;
 	display: flex;
@@ -82,14 +60,14 @@ header {
 			font-size: 1.2rem;
 			font-weight: bold;
 
-            .player-symbol {
-                font-family: 'Fuzzy Bubbles', cursive;
-                font-weight: bold;
-                font-size: 1.5rem;
-                margin-left: 0.5rem;
-                color: $color-primary;
-                text-shadow: 0 0 1px $color-grey-900
-            }
+			.player-symbol {
+				font-family: 'Fuzzy Bubbles', cursive;
+				font-weight: bold;
+				font-size: 1.5rem;
+				margin-left: 0.5rem;
+				color: $color-primary;
+				text-shadow: 0 0 1px $color-grey-900;
+			}
 			i {
 				color: $color-grey-400;
 				font-size: 1rem;
@@ -108,7 +86,6 @@ header {
 			box-shadow: 0 0 5px $color-grey-100;
 		}
 
-
 		.player.active::after {
 			position: absolute;
 			right: -3rem;
@@ -118,7 +95,7 @@ header {
 			border-radius: 100%;
 			height: 1.5rem;
 			width: 1.5rem;
-            animation: show-active .4s ease  1 normal;
+			animation: show-active 0.4s ease 1 normal;
 		}
 	}
 
@@ -145,7 +122,7 @@ header {
 		margin-top: 3rem;
 		margin-bottom: 0.5rem;
 		text-align: center;
-        padding: 0 0.5rem;
+		padding: 0 0.5rem;
 	}
 
 	.board {
@@ -153,23 +130,30 @@ header {
 		grid-template-columns: repeat(3, minmax(60px, 120px));
 		gap: 5px;
 		padding: 0 1rem;
-        list-style: none;
+		list-style: none;
 
 		.cell {
+			display: flex;
+			justify-content: center;
+			align-content: center;
 			position: relative;
 			aspect-ratio: 1;
 			border-radius: 10px;
 			background-color: $color-grey-100;
+			font-family: 'Fuzzy Bubbles', cursive;
+			font-size: 5.5rem;
+			font-weight: bold;
+			color: $color-primary;
 			cursor: pointer;
 		}
 	}
 
 	.edit-name-popup {
-        position: absolute;
+		position: absolute;
 		width: 100%;
 		height: 110%;
-        left: 0;
-        top:-48px;
+		left: 0;
+		top: -48px;
 		background-color: rgba(0, 0, 0, 0.12);
 
 		.popup-inner {
@@ -212,13 +196,21 @@ header {
 }
 
 @keyframes show-active {
-    0%{transform: scale(0);}
-    50%{transform:scale(1.1);}
-    100%{transform: scale(1);}
-
+	0% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 @keyframes mark-cell {
-    0%{opacity:0}
-    100%{opacity:1;}
-
+	0% {
+		color: rgba(194, 106, 106,0);;
+	}
+	100% {
+		color: $color-primary;
+	}
 }

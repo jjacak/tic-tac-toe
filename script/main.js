@@ -9,13 +9,14 @@ const closePopupBtn = document.querySelector('.close-btn');
 const gameEndMsg = document.querySelector('.game-end-msg');
 
 class Player {
-	constructor(objectName, defaultName) {
-		this.objectName = objectName;
+	constructor(playerNumber, defaultName, symbol) {
+		this.playerNumber = playerNumber;
 		this.defaultName = defaultName;
 		this.name = defaultName;
+		this.symbol = symbol;
 		this.playersCells = [];
-		this.playerDiv = document.querySelector(`.${this.objectName}`);
-		this.nameDisplay = document.querySelector(`.${this.objectName}-name`);
+		this.playerDiv = document.querySelector(`.player${this.playerNumber}`);
+		this.nameDisplay = document.querySelector(`.player${this.playerNumber}-name`);
 	}
 
 	reset() {
@@ -23,8 +24,8 @@ class Player {
 	}
 }
 
-const player1 = new Player('player1', 'player 1');
-const player2 = new Player('player2', 'player 2');
+const player1 = new Player('1', 'player 1', 'o');
+const player2 = new Player('2', 'player 2', 'x');
 
 const gameState = {
 	isActive: false,
@@ -69,8 +70,7 @@ function startGame() {
 	gameState.cellsClicked = 0;
 	cells.forEach((cell) => {
 		cell.classList.remove('cell-clicked');
-		cell.classList.remove('cell-clicked-player1');
-		cell.classList.remove('cell-clicked-player2');
+		cell.innerText='';
 	});
 
 	board.classList.remove('hidden');
@@ -91,8 +91,9 @@ function displayActive() {
 
 function markCell() {
 	this.classList.add('cell-clicked');
-    this.classList.add(`cell-clicked-${gameState.activePlayer.objectName}`);
+    this.innerText = gameState.activePlayer.symbol;
     gameState.activePlayer.playersCells.push(this.dataset.cellNumber);
+	
 }
 
 function cellClicked() {
