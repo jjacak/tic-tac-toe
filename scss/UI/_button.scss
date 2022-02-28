@@ -1,0 +1,18 @@
+.btn {
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    background: none;
+    font-size: 1.8rem;
+    font-family: 'Nunito', sans-serif;
+    color: $color-grey-900;
+    font-weight: bold;
+    box-shadow: 0 0 5px $color-grey-400;
+    padding: .5rem 1.4rem;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: $color-primary;
+}

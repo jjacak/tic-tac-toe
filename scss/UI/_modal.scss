@@ -1,0 +1,51 @@
+
+.modal-backdrop {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.12); 
+}
+.edit-name-popup {
+    position: absolute;
+    top: 3rem;
+    right: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    width: 320px;
+    max-width: 90vw;
+    background-color: #fff;
+    transform: translateX(50%);
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    padding: 0.8rem;
+    z-index: 10;
+
+    .close-btn {
+        align-self: flex-end;
+        color: $color-primary;
+        cursor: pointer;
+        padding: 0.5rem;
+        font-size: 1.8rem;
+        
+    }
+    input {
+        border: 1px solid $color-grey-400;
+        border-radius: 5px;
+        width: 90%;
+        padding: 0.5rem;
+        outline: none;
+        font-size: 1.6rem;
+    }
+    input:focus {
+        border-color: $color-grey-900;
+    }
+    label{
+        font-weight: bold;
+        font-size: 1.8rem;
+    }
+
+}

@@ -1,3 +1,82 @@
+.btn {
+  border: 3px solid #c26a6a;
+  border-radius: 10px;
+  background: none;
+  font-size: 1.8rem;
+  font-family: "Nunito", sans-serif;
+  color: #302e2e;
+  font-weight: bold;
+  -webkit-box-shadow: 0 0 5px #787878;
+          box-shadow: 0 0 5px #787878;
+  padding: 0.5rem 1.4rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #c26a6a;
+}
+
+.modal-backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.edit-name-popup {
+  position: absolute;
+  top: 3rem;
+  right: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.8rem;
+  width: 320px;
+  max-width: 90vw;
+  background-color: #fff;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  border: 3px solid #c26a6a;
+  border-radius: 10px;
+  padding: 0.8rem;
+  z-index: 10;
+}
+.edit-name-popup .close-btn {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: #c26a6a;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.8rem;
+}
+.edit-name-popup input {
+  border: 1px solid #787878;
+  border-radius: 5px;
+  width: 90%;
+  padding: 0.5rem;
+  outline: none;
+  font-size: 1.6rem;
+}
+.edit-name-popup input:focus {
+  border-color: #302e2e;
+}
+.edit-name-popup label {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +84,12 @@
           box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   height: 100vh;
 }
 
@@ -17,9 +100,8 @@ header {
   padding: 5px;
   margin-bottom: 3rem;
 }
-
 header h1 {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .hidden {
@@ -27,8 +109,8 @@ header h1 {
 }
 
 .cell-clicked {
-  -webkit-animation: mark-cell .5s ease-in 1;
-          animation: mark-cell .5s ease-in 1;
+  -webkit-animation: mark-cell 0.5s ease-in 1;
+          animation: mark-cell 0.5s ease-in 1;
   pointer-events: none;
 }
 
@@ -49,13 +131,11 @@ header h1 {
           justify-content: center;
   padding-bottom: 1rem;
 }
-
 .game .players {
   -ms-flex-item-align: start;
       align-self: flex-start;
   margin-bottom: 3rem;
 }
-
 .game .players .player {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,7 +147,7 @@ header h1 {
   position: relative;
   -webkit-box-align: end;
       -ms-flex-align: end;
-          align-items: end;
+          align-items: flex-end;
   border: none;
   padding: 0.5rem 1.5rem;
   border-top-right-radius: 10px;
@@ -75,43 +155,38 @@ header h1 {
   -webkit-box-shadow: 0 0 5px #c2bfbf;
           box-shadow: 0 0 5px #c2bfbf;
   color: #c26a6a;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
-
 .game .players .player .player-symbol {
-  font-family: 'Fuzzy Bubbles', cursive;
+  font-family: "Fuzzy Bubbles", cursive;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-left: 0.5rem;
   color: #c26a6a;
   text-shadow: 0 0 1px #302e2e;
 }
-
 .game .players .player i {
   color: #787878;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
-
 .game .players .player1 {
   background-color: #c2bfbf;
   width: 70vw;
   margin-bottom: 0.5rem;
 }
-
 .game .players .player2 {
   background-color: #dedede;
   width: 60vw;
   -webkit-box-shadow: 0 0 5px #dedede;
           box-shadow: 0 0 5px #dedede;
 }
-
 .game .players .player.active::after {
   position: absolute;
   right: -3rem;
   top: calc(50% - 0.75rem);
-  content: '';
+  content: "";
   background-color: #d6d465;
   border-radius: 100%;
   height: 1.5rem;
@@ -119,45 +194,20 @@ header h1 {
   -webkit-animation: show-active 0.4s ease 1 normal;
           animation: show-active 0.4s ease 1 normal;
 }
-
-.game .btn {
-  border: 3px solid #c26a6a;
-  border-radius: 10px;
-  background: none;
-  font-size: 1rem;
-  font-family: 'Nunito', sans-serif;
-  color: #302e2e;
-  font-weight: bold;
-  -webkit-box-shadow: 0 0 5px #787878;
-          box-shadow: 0 0 5px #787878;
-  padding: 5px 10px;
-  cursor: pointer;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-}
-
-.game .btn:hover,
-.game .btn:active {
-  background-color: #c26a6a;
-}
-
 .game .game-end-msg {
   margin-top: 3rem;
   margin-bottom: 0.5rem;
   text-align: center;
   padding: 0 0.5rem;
+  font-size: 1.8rem;
 }
-
 .game .board {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(60px, 120px))[3];
-      grid-template-columns: repeat(3, minmax(60px, 120px));
+  grid-template-columns: repeat(3, minmax(60px, 120px));
   gap: 5px;
   padding: 0 1rem;
   list-style: none;
 }
-
 .game .board .cell {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -171,68 +221,11 @@ header h1 {
   aspect-ratio: 1;
   border-radius: 10px;
   background-color: #dedede;
-  font-family: 'Fuzzy Bubbles', cursive;
+  font-family: "Fuzzy Bubbles", cursive;
   font-size: 5.5rem;
   font-weight: bold;
   color: #c26a6a;
   cursor: pointer;
-}
-
-.game .edit-name-popup {
-  position: absolute;
-  width: 100%;
-  height: 110%;
-  left: 0;
-  top: -48px;
-  background-color: rgba(0, 0, 0, 0.12);
-}
-
-.game .edit-name-popup .popup-inner {
-  position: absolute;
-  top: 3rem;
-  right: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.5rem;
-  width: 320px;
-  max-width: 90vw;
-  background-color: #fff;
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
-  border: 3px solid #c26a6a;
-  border-radius: 10px;
-}
-
-.game .edit-name-popup .popup-inner .close-btn {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  color: #c26a6a;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.game .edit-name-popup .popup-inner input {
-  border: 1px solid #787878;
-  border-radius: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  outline: none;
-}
-
-.game .edit-name-popup .popup-inner input:focus {
-  border-color: #302e2e;
-}
-
-.game .edit-name-popup .popup-inner .btn {
-  margin-bottom: 0.5rem;
 }
 
 @-webkit-keyframes show-active {
@@ -264,7 +257,6 @@ header h1 {
             transform: scale(1);
   }
 }
-
 @-webkit-keyframes mark-cell {
   0% {
     color: rgba(194, 106, 106, 0);
@@ -273,7 +265,6 @@ header h1 {
     color: #c26a6a;
   }
 }
-
 @keyframes mark-cell {
   0% {
     color: rgba(194, 106, 106, 0);
@@ -282,4 +273,8 @@ header h1 {
     color: #c26a6a;
   }
 }
-/*# sourceMappingURL=main.css.map */
+@media (min-width: 576px) {
+  html {
+    font-size: 75%;
+  }
+}/*# sourceMappingURL=main.css.map */

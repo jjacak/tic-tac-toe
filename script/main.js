@@ -5,6 +5,7 @@ const cells = document.querySelectorAll('.cell');
 const editNameInput = document.querySelector('#name-input');
 const saveNameBtn = document.querySelector('.save-name-btn');
 const editNamePopup = document.querySelector('.edit-name-popup');
+const modalBackdrop = document.querySelector('.modal-backdrop')
 const closePopupBtn = document.querySelector('.close-btn');
 const gameEndMsg = document.querySelector('.game-end-msg');
 
@@ -126,6 +127,7 @@ function displayMessage(player) {
 
 function showPopup() {
 	editNamePopup.classList.remove('hidden');
+	modalBackdrop.classList.remove('hidden');
 	gameState.playerToEdit =
 		this.dataset.playerToEdit === 'player1' ? player1 : player2;
 
@@ -142,6 +144,7 @@ function editName() {
 
 function hidePopup() {
 	editNamePopup.classList.add('hidden');
+	modalBackdrop.classList.add('hidden');
 }
 
 startBtn.addEventListener('click', startGame);
@@ -149,6 +152,7 @@ cells.forEach((cell) => cell.addEventListener('click', cellClicked));
 editBtns.forEach((btn) => btn.addEventListener('click', showPopup));
 saveNameBtn.addEventListener('click', editName);
 closePopupBtn.addEventListener('click', hidePopup);
+modalBackdrop.addEventListener('click', hidePopup);
 
 
 
